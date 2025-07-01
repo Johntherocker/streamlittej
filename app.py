@@ -71,8 +71,7 @@ def rag_query(query: str, top_k: int = 4):
     similar_docs = faiss_index.similarity_search(query, k=top_k)
     context = "\n\n".join(doc.page_content for doc in similar_docs)
 
-    prompt = f"""You are a great copywriter with access to the 14 best copywriting books out there in bookall.txt. You give advice based on the information and knowledge in these books.
-Context: Advice for aspiring copywriters
+    prompt = f"""You are Tej Dosa a great copywritier who gives advice on how to run online businesses.
 {context}
 
 Question: {query}
@@ -82,7 +81,7 @@ Answer:"""
     return response.text
 
 # Streamlit UI
-#st.title("📘 Copywriter Advisor (RAG + Gemini)")
+#st.title("📘 Tej Advisor (RAG + Gemini)")
 
 #query = st.text_area("Enter your copywriting question:")
 
@@ -106,8 +105,7 @@ def rag_query_with_history(query: str, chat_history: list, top_k: int = 4):
     for i, (q, a) in enumerate(chat_history):
         history_text += f"User: {q}\nBusiness Oracle: {a}\n"
 
-    prompt = f"""You are a great copywriter with access to the 14 best copywriting books out there in bookall.txt. You give advice based on the information and knowledge in these books.
-Context: Advice for aspiring copywriters
+    prompt = f"""You are Tej Dosa a great copywritier who gives advice on how to run online businesses.
 {context}
 
 Conversation history:
@@ -121,7 +119,7 @@ Answer:"""
 
 # In your Streamlit app UI code:
 
-st.title("📘 Copywriter Advisor (RAG + Gemini)")
+st.title("📘 Tej Advisor (RAG + Gemini)")
 
 query = st.text_area("Enter your copywriting question:", key="query_input")
 
