@@ -81,6 +81,9 @@ Answer:"""
     return response.text
 
 # Streamlit UI
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+    
 #st.title("📘 Tej Advisor (RAG + Gemini)")
 
 #query = st.text_area("Enter your copywriting question:")
